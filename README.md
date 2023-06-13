@@ -1,2 +1,2 @@
 # TelegramBotConvert
-This telegram bot converts voice messages to еуче
+This telegram bot converts voice messages to text
