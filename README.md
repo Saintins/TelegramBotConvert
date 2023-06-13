@@ -1,2 +1,2 @@
 # TelegramBotConvert
-This telegram bot converts text to voice messages
+This telegram bot converts voice messages to text
