@@ -17,14 +17,17 @@ class TTS:
     Поддерживаются форматы аудио: wav, ogg
     """
     default_init = {
-        "sample_rate": 24000,
-        "device_init": "cpu",
-        "threads": 4,
-        "speaker_voice": "kseniya",
-        "model_path": "models/silero/model.pt",  # путь к файлу TTS модели Silero
-        "model_url": "https://models.silero.ai/models/tts/ru/v3_1_ru.pt",  # URL к TTS модели Silero
-        "ffmpeg_path": "models/silero"  # путь к ffmpeg
+    "sample_rate": 24000,
+    "device_init": "cpu",
+    "threads": 4,
+    #"speaker_voice": "mykyta",
+    "speaker_voice": "random",
+    "model_path": "models/silero/model.pt",  # путь к файлу TTS модели Silero
+    #"model_url": "https://models.silero.ai/models/tts/ua/v3_ua.pt",  # URL к TTS модели Silero
+    "model_url":"https://models.silero.ai/models/tts/en/v3_en.pt",
+    "ffmpeg_path": "models/silero"  # путь к ffmpeg
     }
+
 
     def __init__(
         self,
@@ -211,7 +214,7 @@ class TTS:
         """
         return re.sub(
             r"(\d+)",
-            lambda x: num2words(int(x.group(0)), lang="ru"),
+            lambda x: num2words(int(x.group(0)), lang="en"),
             text)
 
     def _merge_audio_n_to_1(
