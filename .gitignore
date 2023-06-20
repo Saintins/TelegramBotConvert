@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Language libraries to convert
+models\vosk\vosk-model-uk-v3-lgraph
+
 # C extensions
 *.so
 
