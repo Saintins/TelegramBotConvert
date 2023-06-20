@@ -15,7 +15,7 @@ from tts import TTS
 
 load_dotenv()
 
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_TOKEN = '6212540234:AAFHSxQOGCAt_lFaeHoipImKdk4Re3uJv_s'
 
 bot = Bot(token=TELEGRAM_TOKEN)  # Объект бота
 dp = Dispatcher(bot)  # Диспетчер для бота

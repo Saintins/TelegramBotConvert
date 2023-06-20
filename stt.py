@@ -16,7 +16,7 @@ class STT:
     Поддерживаются форматы аудио: wav, ogg
     """
     default_init = {
-        "model_path": "models/vosk/model",  # путь к папке с файлами STT модели Vosk
+        "model_path": "models/vosk/vosk-model-uk-v3-lgraph",  # путь к папке с файлами STT модели Vosk
         "sample_rate": 16000,
         "ffmpeg_path": "models/vosk"  # путь к ffmpeg
     }
