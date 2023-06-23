@@ -37,16 +37,6 @@ async def cmd_start(message: types.Message):
         " и создания аудио из текста."
     )
 
-
-# Хэндлер на команду /test
-@dp.message_handler(commands="test")
-async def cmd_test(message: types.Message):
-    """
-    Обработчик команды /test
-    """
-    await message.answer("Test")
-
-
 # Хэндлер на получение текста
 @dp.message_handler(content_types=[types.ContentType.TEXT])
 async def cmd_text(message: types.Message):
@@ -65,7 +55,6 @@ async def cmd_text(message: types.Message):
 
     # Удаление временного файла
     os.remove(out_filename)
-
 
 # Хэндлер на получение голосового и аудио сообщения
 @dp.message_handler(content_types=[

@@ -16,7 +16,7 @@ class STT:
     Поддерживаются форматы аудио: wav, ogg
     """
     default_init = {
-        "model_path": "models/vosk/vosk-model-uk-v3-lgraph",  # путь к папке с файлами STT модели Vosk
+        "model_path": "models/vosk/vosk-model-small-ru-0.22",  # путь к папке с файлами STT модели Vosk
         "sample_rate": 16000,
         "ffmpeg_path": "models/vosk"  # путь к ffmpeg
     }
@@ -49,10 +49,7 @@ class STT:
         Проверка наличия модели Vosk на нужном языке в каталоге приложения
         """
         if not os.path.exists(self.model_path):
-            raise Exception(
-                "Vosk: сохраните папку model в папку vosk\n"
-                "Скачайте модель по ссылке https://alphacephei.com/vosk/models"
-                            )
+            raise Exception()
 
         isffmpeg_here = False
         for file in os.listdir(self.ffmpeg_path):
@@ -60,10 +57,7 @@ class STT:
                 isffmpeg_here = True
 
         if not isffmpeg_here:
-            raise Exception(
-                "Ffmpeg: сохраните ffmpeg.exe в папку ffmpeg\n"
-                "Скачайте ffmpeg.exe по ссылке https://ffmpeg.org/download.html"
-                            )
+            raise Exception()
         self.ffmpeg_path = self.ffmpeg_path + '/ffmpeg'
 
     def audio_to_text(self, audio_file_name=None) -> str:
@@ -108,5 +102,3 @@ if __name__ == "__main__":
     # Распознование аудио
     start_time = datetime.now()
     stt = STT()
-    print(stt.audio_to_text("test-1.ogg"))
-    print("Время выполнения:", datetime.now() - start_time)

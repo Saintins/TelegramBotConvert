@@ -241,16 +241,6 @@ class TTS:
         with open("audiolist.txt", "wt") as file:
             file.write(filenames)
 
-        # region
-        # Объединит несколько файлов в один файл без перекодирования
-        # mylist.txt содержит
-        # file '/path/to/file1.wav'
-        # file '/path/to/file2.wav'
-        # file '/path/to/file3.wav'
-
-        # ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.wav
-        # endregion
-
         command = [
             self.ffmpeg_path,
             "-loglevel", "quiet",
@@ -376,38 +366,6 @@ class TTS:
 
         return self._rename_file(wav_audio_path, out_filename)
 
-# region Может не работать!
-    #     # Сохранение результата в файл ogg Не всегда работает!
-    #     audio_tenzor = self.model.apply_tts(
-    #         text=text,
-    #         speaker=speaker_voice,
-    #         sample_rate=sample_rate
-    #     )
-    #     torchaudio.save(
-    #         out_filename,
-    #         audio_tenzor.unsqueeze(0),
-    #         sample_rate=sample_rate,
-    #         format="ogg"
-    #     )
-    #     return out_filename
-
-    # def get_bytes(self, text=None, speaker_voice=None, sample_rate=None) -> str:
-    #     audio_tenzor = self.model.apply_tts(
-    #         text=text,
-    #         speaker=speaker_voice,
-    #         sample_rate=sample_rate
-    #     )
-
-    #     # Сохранение результата в файл BytesIO
-    #     buffer_ = io.BytesIO()
-    #     torchaudio.save(buffer_,
-    #                     audio_tenzor.unsqueeze(0),
-    #                     sample_rate,
-    #                     format="ogg")
-    #     buffer_.seek(0)
-    #     return buffer_
-# endregion
-
     def wav_to_ogg_bytes(self, in_bytes: bytes) -> bytes:
         """
         Конвертирует аудио в ogg формат без сохранения данных на диск.
@@ -436,7 +394,3 @@ if __name__ == "__main__":
     # Генерирование аудио из текста
     start_time = datetime.now()
     tts = TTS()
-    print(tts.text_to_ogg("Привет,Хабр! Тэст 1 2 три четыре", "test-1.ogg"))
-    print(tts.text_to_wav("Тэст! Как меня слышно? Пыш-пыш. Прием!", "test-2.wav"))
-    print(tts.text_to_ogg("Слышу хорошо! Пыш-пыш.", "test-3.ogg"))
-    print("Время выполнения:", datetime.now() - start_time)

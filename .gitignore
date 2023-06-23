@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # Language libraries to convert
-models/vosk/vosk-model-uk-v3-lgraph
+models/vosk/vosk-model-ru-0.22
 buble/
 # C extensions
 *.so
