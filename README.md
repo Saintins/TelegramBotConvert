@@ -25,8 +25,8 @@ aiogram, torch, vosk, silero, num2words, ffmpeg
 Клонуйте репозиторій та перейдіть в нього у командну строку:
 
 ```
-git clone https://github.com/tochilkinva/tg_bot_stt_tts.git
-cd tg_bot_stt_tts
+git clone https://github.com/Saintins/TelegramBotConvert.git
+cd TelegramBotConvert
 ```
 
 Створіть і активуйте віртуальне занурення:
